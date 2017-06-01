@@ -48,8 +48,9 @@ cd http
 git checkout implementation/mod_swift
 ```
 
-Either in Xcode (open `SwiftServerHttp.xcodeproj`, then just build&run). Or in the shell:
+Build in Xcode: open `SwiftServerHttp.xcodeproj`, then just build&run.
 
+For some weird reason building using SPM fails badly. Hm.
 ```shell
 cd Samples/mods_httpapi
 swift apache build
