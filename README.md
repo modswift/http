@@ -39,7 +39,14 @@ tar zxf mod_swift.tgz && cd mod_swift-0.8.5
 sudo make install
 ```
 
-## Build example module
+## Build API & example module
+
+Grab the repo:
+```shell
+git clone https://github.com/modswift/http.git
+cd http
+git checkout implementation/mod_swift
+```
 
 Either in Xcode (open `SwiftServerHttp.xcodeproj`, then just build&run). Or in the shell:
 
