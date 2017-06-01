@@ -48,6 +48,12 @@ swift apache build
 swift apache serve
 ```
 
+Test echo handler
+
+```sh
+curl -X PUT --data-binary $'Hello\n  Swift\n' http://localhost:8042/echo
+```
+
 ### Notes
 
 - the implementation does synchronous I/O

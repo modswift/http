@@ -73,3 +73,7 @@ fastlane/test_output
 *.orig
 /.idea
 /Package.pins
+
+# mod_swift
+.httpd.pid
+

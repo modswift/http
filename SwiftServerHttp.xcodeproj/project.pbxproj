@@ -10,7 +10,6 @@
 		E85125A01EE04F2E0024F268 /* HTTPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851259C1EE04F2E0024F268 /* HTTPCommon.swift */; };
 		E85125A11EE04F2E0024F268 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851259D1EE04F2E0024F268 /* HTTPRequest.swift */; };
 		E85125A21EE04F2E0024F268 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851259E1EE04F2E0024F268 /* HTTPResponse.swift */; };
-		E85125A31EE04F2E0024F268 /* StreamingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851259F1EE04F2E0024F268 /* StreamingParser.swift */; };
 		E85125B51EE053C20024F268 /* libSwiftServerHttp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E85125931EE04EAD0024F268 /* libSwiftServerHttp.dylib */; };
 		E85125BC1EE053E40024F268 /* EchoWebApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B61EE053E40024F268 /* EchoWebApp.swift */; };
 		E85125BD1EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B71EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift */; };
@@ -38,7 +37,6 @@
 		E851259C1EE04F2E0024F268 /* HTTPCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPCommon.swift; path = SwiftServerHttp/HTTPCommon.swift; sourceTree = "<group>"; };
 		E851259D1EE04F2E0024F268 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequest.swift; path = SwiftServerHttp/HTTPRequest.swift; sourceTree = "<group>"; };
 		E851259E1EE04F2E0024F268 /* HTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPResponse.swift; path = SwiftServerHttp/HTTPResponse.swift; sourceTree = "<group>"; };
-		E851259F1EE04F2E0024F268 /* StreamingParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StreamingParser.swift; path = SwiftServerHttp/StreamingParser.swift; sourceTree = "<group>"; };
 		E85125A71EE04FB30024F268 /* ModSwiftLib.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ModSwiftLib.xcconfig; sourceTree = "<group>"; };
 		E85125AA1EE0508D0024F268 /* mod_swift.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = mod_swift.xcconfig; path = /usr/local/opt/mod_swift/lib/xcconfig/mod_swift.xcconfig; sourceTree = "<absolute>"; };
 		E85125AF1EE0512B0024F268 /* libmods_httpapi.so */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmods_httpapi.so; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,8 +77,9 @@
 			children = (
 				E85125E61EE0579A0024F268 /* README.md */,
 				E85125E51EE057950024F268 /* API.md */,
-				E851259A1EE04F2E0024F268 /* Sources */,
-				E85125A81EE04FCA0024F268 /* Samples */,
+				E85125A81EE04FCA0024F268 /* Sample Module */,
+				E85126081EE068180024F268 /* API */,
+				E851259A1EE04F2E0024F268 /* Apache Implementation */,
 				E85125A61EE04FB30024F268 /* Configurations */,
 				E85125941EE04EAD0024F268 /* Products */,
 			);
@@ -95,17 +94,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E851259A1EE04F2E0024F268 /* Sources */ = {
+		E851259A1EE04F2E0024F268 /* Apache Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				E851259C1EE04F2E0024F268 /* HTTPCommon.swift */,
-				E851259D1EE04F2E0024F268 /* HTTPRequest.swift */,
-				E851259E1EE04F2E0024F268 /* HTTPResponse.swift */,
-				E851259F1EE04F2E0024F268 /* StreamingParser.swift */,
 				E85125E11EE054D90024F268 /* ApacheHTTP.swift */,
 				E85125E31EE0577D0024F268 /* ApacheRequest.swift */,
 				E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */,
 			);
+			name = "Apache Implementation";
 			path = Sources;
 			sourceTree = "<group>";
 		};
@@ -119,7 +115,7 @@
 			path = xcconfig;
 			sourceTree = "<group>";
 		};
-		E85125A81EE04FCA0024F268 /* Samples */ = {
+		E85125A81EE04FCA0024F268 /* Sample Module */ = {
 			isa = PBXGroup;
 			children = (
 				E85125B91EE053E40024F268 /* mods_httpapi.swift */,
@@ -129,7 +125,18 @@
 				E85125BA1EE053E40024F268 /* SimpleResponseCreator.swift */,
 				E85125BB1EE053E40024F268 /* TestResponseResolver.swift */,
 			);
-			name = Samples;
+			name = "Sample Module";
+			sourceTree = "<group>";
+		};
+		E85126081EE068180024F268 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E851259C1EE04F2E0024F268 /* HTTPCommon.swift */,
+				E851259D1EE04F2E0024F268 /* HTTPRequest.swift */,
+				E851259E1EE04F2E0024F268 /* HTTPResponse.swift */,
+			);
+			name = API;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +183,7 @@
 				E85125AB1EE0512B0024F268 /* Sources */,
 				E85125AC1EE0512B0024F268 /* Frameworks */,
 				E85125AD1EE0512B0024F268 /* Headers */,
+				E85126071EE066E50024F268 /* Generate Apache Config */,
 			);
 			buildRules = (
 			);
@@ -227,6 +235,25 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E85126071EE066E50024F268 /* Generate Apache Config */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.build/apache.conf",
+				"$(SRCROOT)/.build/module.conf",
+			);
+			name = "Generate Apache Config";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "swift apache genconfig\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E851258F1EE04EAD0024F268 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -238,7 +265,6 @@
 				E85125A01EE04F2E0024F268 /* HTTPCommon.swift in Sources */,
 				E85125E21EE054D90024F268 /* ApacheHTTP.swift in Sources */,
 				E85125A11EE04F2E0024F268 /* HTTPRequest.swift in Sources */,
-				E85125A31EE04F2E0024F268 /* StreamingParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

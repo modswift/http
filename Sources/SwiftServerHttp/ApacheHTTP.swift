@@ -107,6 +107,7 @@ public func apache(_ cmd: OpaquePointer, name: String? = nil) -> ApacheModule {
   let typedCmd = UnsafeMutablePointer<cmd_parms>(cmd)
   let app = ApacheModule(loadCommand: typedCmd, name: name ?? "mod_swift")
   modules.append(app)
+  
   let rc = apz_register_swift_module(typedCmd, &app.module)
   assert(rc == APR_SUCCESS, "Could not add Swift module!")
   return app
@@ -115,11 +116,7 @@ public func apache(_ cmd: OpaquePointer, name: String? = nil) -> ApacheModule {
 
 // MARK: - Apache Module Structure
 
-fileprivate var didRegisterHooks = false
 fileprivate func register_hooks(pool: OpaquePointer?) {
-  guard !didRegisterHooks else { return }
-  didRegisterHooks = true
-  
   ap_hook_handler(handler, nil, nil, APR_HOOK_FIRST)
 }
 
