@@ -1,0 +1,12 @@
+//
+// Copyright (C) 2017 ZeeZide GmbH, All Rights Reserved
+// Created by Helge Hess on 23/01/2017.
+//
+
+#include "/usr/local/lib/xcconfig/mod_swift.xcconfig"
+
+// Reuse the xcconfig intended for modules. Just override the stuff we need
+// to be different.
+DYLIB_INSTALL_NAME_BASE = /usr/local/lib/
+EXECUTABLE_EXTENSION    = dylib
+EXECUTABLE_PREFIX       = lib

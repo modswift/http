@@ -6,8 +6,8 @@
 // See http://swift.org/LICENSE.txt for license information
 //
 
+/*
 import Foundation
-
 
 /// Class that wraps the HTTPParser and calls the `WebApp` to get the response
 public class StreamingParser: HTTPResponseWriter {
@@ -201,3 +201,6 @@ public class StreamingParser: HTTPResponseWriter {
     }
 
 }
+
+*/
+
