@@ -35,7 +35,9 @@ public class ApacheModule {
     }
   }
     
-  func handle(request raw: UnsafeMutablePointer<request_rec>) -> Int32 {
+  func handle(request rawOpaque: OpaquePointer) -> Int32 {
+    // opaque is to workaround clang crashers
+    let raw = UnsafeMutablePointer<request_rec>(rawOpaque)
     let uri = String(cString: raw.pointee.uri)
     
     let handler : WebApp? = {
@@ -125,9 +127,10 @@ fileprivate func register_hooks(pool: OpaquePointer?) {
 
 // The main entry point to generate ApacheExpress.http server callbacks
 fileprivate func handler(p: UnsafeMutablePointer<request_rec>?) -> Int32 {
-  guard p != nil else { return DECLINED }
+  let te = OpaquePointer(p) // workaround clang crashers
+  guard te != nil else { return DECLINED }
   for module in modules {
-    let rc = module.handle(request: p!)
+    let rc = module.handle(request: te!)
     if rc != DECLINED { return rc }
   }
   return DECLINED
