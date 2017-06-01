@@ -41,6 +41,8 @@ sudo make install
 
 ## Build example module
 
+Either in Xcode (open `SwiftServerHttp.xcodeproj`, then just build&run). Or in the shell:
+
 ```shell
 cd Samples/mods_httpapi
 swift apache build

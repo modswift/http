@@ -7,5 +7,6 @@ let package = Package(
     dependencies: [
       .Package(url: "https://github.com/modswift/CApache.git", 
                majorVersion: 1, minor: 0)
-    ]
+    ],
+    exclude: [ "Samples" ]
 )
