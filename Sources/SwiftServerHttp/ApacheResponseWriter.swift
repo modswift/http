@@ -6,6 +6,7 @@
 //  Copyright © 2017 ZeeZide GmbH. All rights reserved.
 //
 
+import CAPR
 import CApache
 import Dispatch
 import Foundation
@@ -51,10 +52,20 @@ class ApacheResponseWriter : HTTPResponseWriter {
         // too lazy to do all of them
         typedHandle.pointee.status = HTTP_INTERNAL_SERVER_ERROR
     }
-  }
-  
-  func writeHeader(key: String, value: String) {
-    apr_table_set(typedHandle.pointee.headers_out, key, value)
+
+    for ( name, value ) in response.headers.makeIterator() {
+      switch name.lowercased() {
+        case "content-type":
+          ap_set_content_type(typedHandle, apr_pstrdup(typedHandle.pointee.pool, "\(value)"))
+        case "content-encoding":
+          typedHandle.pointee.content_encoding =
+            UnsafePointer(apr_pstrdup(typedHandle.pointee.pool, "\(value)"))
+        case "content-language":
+          fatalError("no support for content-language yet ...")
+        default:
+          apr_table_set(typedHandle.pointee.headers_out, name, value)
+      }
+    }
   }
   
   func writeBody(data: DispatchData,

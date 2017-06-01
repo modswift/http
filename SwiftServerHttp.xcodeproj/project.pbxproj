@@ -15,8 +15,6 @@
 		E85125BD1EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B71EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift */; };
 		E85125BE1EE053E40024F268 /* HelloWorldWebApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B81EE053E40024F268 /* HelloWorldWebApp.swift */; };
 		E85125BF1EE053E40024F268 /* mods_httpapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B91EE053E40024F268 /* mods_httpapi.swift */; };
-		E85125C01EE053E40024F268 /* SimpleResponseCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125BA1EE053E40024F268 /* SimpleResponseCreator.swift */; };
-		E85125C11EE053E40024F268 /* TestResponseResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125BB1EE053E40024F268 /* TestResponseResolver.swift */; };
 		E85125E21EE054D90024F268 /* ApacheHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E11EE054D90024F268 /* ApacheHTTP.swift */; };
 		E85125E41EE0577D0024F268 /* ApacheRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E31EE0577D0024F268 /* ApacheRequest.swift */; };
 		E85125E81EE058A20024F268 /* ApacheResponseWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */; };
@@ -44,8 +42,6 @@
 		E85125B71EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelloWorldKeepAliveWebApp.swift; path = Samples/mods_httpapi/Sources/HelloWorldKeepAliveWebApp.swift; sourceTree = "<group>"; };
 		E85125B81EE053E40024F268 /* HelloWorldWebApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelloWorldWebApp.swift; path = Samples/mods_httpapi/Sources/HelloWorldWebApp.swift; sourceTree = "<group>"; };
 		E85125B91EE053E40024F268 /* mods_httpapi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mods_httpapi.swift; path = Samples/mods_httpapi/Sources/mods_httpapi.swift; sourceTree = "<group>"; };
-		E85125BA1EE053E40024F268 /* SimpleResponseCreator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleResponseCreator.swift; path = Samples/mods_httpapi/Sources/SimpleResponseCreator.swift; sourceTree = "<group>"; };
-		E85125BB1EE053E40024F268 /* TestResponseResolver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestResponseResolver.swift; path = Samples/mods_httpapi/Sources/TestResponseResolver.swift; sourceTree = "<group>"; };
 		E85125E11EE054D90024F268 /* ApacheHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApacheHTTP.swift; path = SwiftServerHttp/ApacheHTTP.swift; sourceTree = "<group>"; };
 		E85125E31EE0577D0024F268 /* ApacheRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApacheRequest.swift; path = SwiftServerHttp/ApacheRequest.swift; sourceTree = "<group>"; };
 		E85125E51EE057950024F268 /* API.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = API.md; sourceTree = "<group>"; };
@@ -122,8 +118,6 @@
 				E85125B61EE053E40024F268 /* EchoWebApp.swift */,
 				E85125B71EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift */,
 				E85125B81EE053E40024F268 /* HelloWorldWebApp.swift */,
-				E85125BA1EE053E40024F268 /* SimpleResponseCreator.swift */,
-				E85125BB1EE053E40024F268 /* TestResponseResolver.swift */,
 			);
 			name = "Sample Module";
 			sourceTree = "<group>";
@@ -274,10 +268,8 @@
 			files = (
 				E85125BC1EE053E40024F268 /* EchoWebApp.swift in Sources */,
 				E85125BF1EE053E40024F268 /* mods_httpapi.swift in Sources */,
-				E85125C11EE053E40024F268 /* TestResponseResolver.swift in Sources */,
 				E85125BE1EE053E40024F268 /* HelloWorldWebApp.swift in Sources */,
 				E85125BD1EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift in Sources */,
-				E85125C01EE053E40024F268 /* SimpleResponseCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@
 //  Copyright © 2017 ZeeZide GmbH. All rights reserved.
 //
 
+import CAPR
 import CApache
 import Dispatch
 
@@ -46,6 +47,8 @@ public class ApacheModule {
     }()
 
     guard let app = handler else { return DECLINED }
+
+    ap_set_content_type(raw, apr_pstrdup(raw.pointee.pool, "text/plain"))
     
     let request        = ApacheRequest(raw)
     let responseWriter = ApacheResponseWriter(raw)
