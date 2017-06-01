@@ -50,6 +50,13 @@ git checkout implementation/mod_swift
 
 Build in Xcode: open `SwiftServerHttp.xcodeproj`, then just build&run.
 
+Build using SPM:
+```shell
+cd Samples/mods_httpapi
+swift apache build
+swift apache serve
+```
+
 ### Test
 
 - hello world endpoint:
@@ -60,17 +67,6 @@ Build in Xcode: open `SwiftServerHttp.xcodeproj`, then just build&run.
 
 ```sh
 curl -X PUT --data-binary $'Hello\n  Swift\n' http://localhost:8042/echo
-```
-
-### Swift Package Manager build
-
-For some weird reason building using SPM fails badly.
-Hm, will check that later.
-Should be:
-```shell
-cd Samples/mods_httpapi
-swift apache build
-swift apache serve
 ```
 
 ### Sources

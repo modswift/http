@@ -18,3 +18,5 @@ DerivedData
 .build/
 Packages
 .httpd.pid
+Package.pins
+
