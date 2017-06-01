@@ -20,6 +20,7 @@
 		E85125C11EE053E40024F268 /* TestResponseResolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125BB1EE053E40024F268 /* TestResponseResolver.swift */; };
 		E85125E21EE054D90024F268 /* ApacheHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E11EE054D90024F268 /* ApacheHTTP.swift */; };
 		E85125E41EE0577D0024F268 /* ApacheRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E31EE0577D0024F268 /* ApacheRequest.swift */; };
+		E85125E81EE058A20024F268 /* ApacheResponseWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		E85125E31EE0577D0024F268 /* ApacheRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApacheRequest.swift; path = SwiftServerHttp/ApacheRequest.swift; sourceTree = "<group>"; };
 		E85125E51EE057950024F268 /* API.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = API.md; sourceTree = "<group>"; };
 		E85125E61EE0579A0024F268 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApacheResponseWriter.swift; path = SwiftServerHttp/ApacheResponseWriter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				E851259F1EE04F2E0024F268 /* StreamingParser.swift */,
 				E85125E11EE054D90024F268 /* ApacheHTTP.swift */,
 				E85125E31EE0577D0024F268 /* ApacheRequest.swift */,
+				E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			files = (
 				E85125A21EE04F2E0024F268 /* HTTPResponse.swift in Sources */,
 				E85125E41EE0577D0024F268 /* ApacheRequest.swift in Sources */,
+				E85125E81EE058A20024F268 /* ApacheResponseWriter.swift in Sources */,
 				E85125A01EE04F2E0024F268 /* HTTPCommon.swift in Sources */,
 				E85125E21EE054D90024F268 /* ApacheHTTP.swift in Sources */,
 				E85125A11EE04F2E0024F268 /* HTTPRequest.swift in Sources */,

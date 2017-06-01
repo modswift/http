@@ -8,6 +8,7 @@
 
 import CApache
 
+/// Creates a HTTPRequest from a raw Apache request structure
 func ApacheRequest(_ handle: UnsafeMutablePointer<request_rec>) -> HTTPRequest {
   
   // derive method
