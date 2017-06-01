@@ -47,3 +47,19 @@ swift apache build
 
 swift apache serve
 ```
+
+### Notes
+
+- the implementation does synchronous I/O
+- a lot of `@escaping` could be dropped
+- it is pretty hacky ;->
+- doesn't implement all enum cases for method/status
+- no abort/trailers
+- ignores TE
+
+### API Notes
+
+- convenience doesn't belong into protocols, but in extensions
+  - maybe DispatchData should be the default, and Data just a convenience 
+- the `shouldStop` of HTTPBodyHandler belongs into `HTTPBodyChunk.chunk`
+- no idea what `WebAppContaining` is good for and where weak would be relevant

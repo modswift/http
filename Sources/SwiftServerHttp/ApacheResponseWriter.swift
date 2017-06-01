@@ -10,17 +10,6 @@ import CApache
 import Dispatch
 import Foundation
 
-/*
- func writeBody(data: DispatchData, completion: @escaping (Result<POSIXError, ()>) -> Void)
- func writeBody(data: DispatchData) /* convenience */
- 
- func writeBody(data: Data, completion: @escaping (Result<POSIXError, ()>) -> Void)
- func writeBody(data: Data) /* convenience */
- 
- func done() /* convenience */
- func done(completion: @escaping (Result<POSIXError, ()>) -> Void)
-*/
-
 class ApacheResponseWriter : HTTPResponseWriter {
   
   var handle : OpaquePointer
@@ -43,7 +32,6 @@ class ApacheResponseWriter : HTTPResponseWriter {
   func writeTrailer(key: String, value: String) {
     fatalError("doesNotRecognize(#selector(\(#function)))")
   }
-  
   func writeContinue(headers: HTTPHeaders?) {
     fatalError("doesNotRecognize(#selector(\(#function)))")
   }
