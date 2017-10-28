@@ -1,12 +1,19 @@
-// swift-tools-version:3.1
+// swift-tools-version:4.0
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
     name: "SwiftServerHttp",
-    dependencies: [
-      .Package(url: "https://github.com/modswift/CApache.git", 
-               majorVersion: 1, minor: 0)
+    products: [
+        // Products define the executables and libraries produced by a package, and make them visible to other packages.
+        .library(name: "HTTP", targets: ["HTTP"])
     ],
-    exclude: [ "Samples" ]
+    dependencies: [
+      .package(url: "https://github.com/modswift/CApache.git", 
+               from: "1.0.0")
+    ],
+    targets: [
+      .target(name: "HTTP")
+    ]
 )
