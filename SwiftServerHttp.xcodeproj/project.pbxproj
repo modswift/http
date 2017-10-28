@@ -7,17 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E85125A01EE04F2E0024F268 /* HTTPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851259C1EE04F2E0024F268 /* HTTPCommon.swift */; };
-		E85125A11EE04F2E0024F268 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851259D1EE04F2E0024F268 /* HTTPRequest.swift */; };
-		E85125A21EE04F2E0024F268 /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E851259E1EE04F2E0024F268 /* HTTPResponse.swift */; };
-		E85125B51EE053C20024F268 /* libSwiftServerHttp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E85125931EE04EAD0024F268 /* libSwiftServerHttp.dylib */; };
+		E80557C31FA4CA0D00796CDA /* ApacheHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E611FA4C99600C90FF5 /* ApacheHTTP.swift */; };
+		E80557C41FA4CA0D00796CDA /* ApacheRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E621FA4C99600C90FF5 /* ApacheRequest.swift */; };
+		E80557C51FA4CA0D00796CDA /* ApacheResponseWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E631FA4C99600C90FF5 /* ApacheResponseWriter.swift */; };
+		E80557C61FA4CA0D00796CDA /* HTTPCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E641FA4C99600C90FF5 /* HTTPCommon.swift */; };
+		E80557C71FA4CA0D00796CDA /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E651FA4C99600C90FF5 /* HTTPHeaders.swift */; };
+		E80557C81FA4CA0D00796CDA /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E661FA4C99600C90FF5 /* HTTPMethod.swift */; };
+		E80557C91FA4CA0D00796CDA /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E671FA4C99600C90FF5 /* HTTPRequest.swift */; };
+		E80557CA1FA4CA0D00796CDA /* HTTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E681FA4C99600C90FF5 /* HTTPResponse.swift */; };
+		E80557CB1FA4CA0D00796CDA /* HTTPServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E691FA4C99600C90FF5 /* HTTPServer.swift */; };
+		E80557CD1FA4CA0D00796CDA /* HTTPVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E07E6B1FA4C99600C90FF5 /* HTTPVersion.swift */; };
+		E85125B51EE053C20024F268 /* libHTTP.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E85125931EE04EAD0024F268 /* libHTTP.dylib */; };
 		E85125BC1EE053E40024F268 /* EchoWebApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B61EE053E40024F268 /* EchoWebApp.swift */; };
 		E85125BD1EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B71EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift */; };
 		E85125BE1EE053E40024F268 /* HelloWorldWebApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B81EE053E40024F268 /* HelloWorldWebApp.swift */; };
 		E85125BF1EE053E40024F268 /* mods_httpapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125B91EE053E40024F268 /* mods_httpapi.swift */; };
-		E85125E21EE054D90024F268 /* ApacheHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E11EE054D90024F268 /* ApacheHTTP.swift */; };
-		E85125E41EE0577D0024F268 /* ApacheRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E31EE0577D0024F268 /* ApacheRequest.swift */; };
-		E85125E81EE058A20024F268 /* ApacheResponseWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,10 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E85125931EE04EAD0024F268 /* libSwiftServerHttp.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libSwiftServerHttp.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		E851259C1EE04F2E0024F268 /* HTTPCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPCommon.swift; path = SwiftServerHttp/HTTPCommon.swift; sourceTree = "<group>"; };
-		E851259D1EE04F2E0024F268 /* HTTPRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPRequest.swift; path = SwiftServerHttp/HTTPRequest.swift; sourceTree = "<group>"; };
-		E851259E1EE04F2E0024F268 /* HTTPResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HTTPResponse.swift; path = SwiftServerHttp/HTTPResponse.swift; sourceTree = "<group>"; };
+		E85125931EE04EAD0024F268 /* libHTTP.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libHTTP.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		E85125A71EE04FB30024F268 /* ModSwiftLib.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ModSwiftLib.xcconfig; sourceTree = "<group>"; };
 		E85125AA1EE0508D0024F268 /* mod_swift.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = mod_swift.xcconfig; path = /usr/local/opt/mod_swift/lib/xcconfig/mod_swift.xcconfig; sourceTree = "<absolute>"; };
 		E85125AF1EE0512B0024F268 /* libmods_httpapi.so */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libmods_httpapi.so; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,11 +43,18 @@
 		E85125B71EE053E40024F268 /* HelloWorldKeepAliveWebApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelloWorldKeepAliveWebApp.swift; path = Samples/mods_httpapi/Sources/HelloWorldKeepAliveWebApp.swift; sourceTree = "<group>"; };
 		E85125B81EE053E40024F268 /* HelloWorldWebApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HelloWorldWebApp.swift; path = Samples/mods_httpapi/Sources/HelloWorldWebApp.swift; sourceTree = "<group>"; };
 		E85125B91EE053E40024F268 /* mods_httpapi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mods_httpapi.swift; path = Samples/mods_httpapi/Sources/mods_httpapi.swift; sourceTree = "<group>"; };
-		E85125E11EE054D90024F268 /* ApacheHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApacheHTTP.swift; path = SwiftServerHttp/ApacheHTTP.swift; sourceTree = "<group>"; };
-		E85125E31EE0577D0024F268 /* ApacheRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApacheRequest.swift; path = SwiftServerHttp/ApacheRequest.swift; sourceTree = "<group>"; };
 		E85125E51EE057950024F268 /* API.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = API.md; sourceTree = "<group>"; };
 		E85125E61EE0579A0024F268 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ApacheResponseWriter.swift; path = SwiftServerHttp/ApacheResponseWriter.swift; sourceTree = "<group>"; };
+		E8E07E611FA4C99600C90FF5 /* ApacheHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApacheHTTP.swift; sourceTree = "<group>"; };
+		E8E07E621FA4C99600C90FF5 /* ApacheRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApacheRequest.swift; sourceTree = "<group>"; };
+		E8E07E631FA4C99600C90FF5 /* ApacheResponseWriter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApacheResponseWriter.swift; sourceTree = "<group>"; };
+		E8E07E641FA4C99600C90FF5 /* HTTPCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPCommon.swift; sourceTree = "<group>"; };
+		E8E07E651FA4C99600C90FF5 /* HTTPHeaders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeaders.swift; sourceTree = "<group>"; };
+		E8E07E661FA4C99600C90FF5 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
+		E8E07E671FA4C99600C90FF5 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		E8E07E681FA4C99600C90FF5 /* HTTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponse.swift; sourceTree = "<group>"; };
+		E8E07E691FA4C99600C90FF5 /* HTTPServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPServer.swift; sourceTree = "<group>"; };
+		E8E07E6B1FA4C99600C90FF5 /* HTTPVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVersion.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E85125B51EE053C20024F268 /* libSwiftServerHttp.dylib in Frameworks */,
+				E85125B51EE053C20024F268 /* libHTTP.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,9 +81,8 @@
 			children = (
 				E85125E61EE0579A0024F268 /* README.md */,
 				E85125E51EE057950024F268 /* API.md */,
+				E8E07E5F1FA4C99600C90FF5 /* Sources */,
 				E85125A81EE04FCA0024F268 /* Sample Module */,
-				E85126081EE068180024F268 /* API */,
-				E851259A1EE04F2E0024F268 /* Apache Implementation */,
 				E85125A61EE04FB30024F268 /* Configurations */,
 				E85125941EE04EAD0024F268 /* Products */,
 			);
@@ -84,21 +91,10 @@
 		E85125941EE04EAD0024F268 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E85125931EE04EAD0024F268 /* libSwiftServerHttp.dylib */,
+				E85125931EE04EAD0024F268 /* libHTTP.dylib */,
 				E85125AF1EE0512B0024F268 /* libmods_httpapi.so */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		E851259A1EE04F2E0024F268 /* Apache Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				E85125E11EE054D90024F268 /* ApacheHTTP.swift */,
-				E85125E31EE0577D0024F268 /* ApacheRequest.swift */,
-				E85125E71EE058A20024F268 /* ApacheResponseWriter.swift */,
-			);
-			name = "Apache Implementation";
-			path = Sources;
 			sourceTree = "<group>";
 		};
 		E85125A61EE04FB30024F268 /* Configurations */ = {
@@ -122,15 +118,29 @@
 			name = "Sample Module";
 			sourceTree = "<group>";
 		};
-		E85126081EE068180024F268 /* API */ = {
+		E8E07E5F1FA4C99600C90FF5 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				E851259C1EE04F2E0024F268 /* HTTPCommon.swift */,
-				E851259D1EE04F2E0024F268 /* HTTPRequest.swift */,
-				E851259E1EE04F2E0024F268 /* HTTPResponse.swift */,
+				E8E07E601FA4C99600C90FF5 /* HTTP */,
 			);
-			name = API;
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		E8E07E601FA4C99600C90FF5 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				E8E07E611FA4C99600C90FF5 /* ApacheHTTP.swift */,
+				E8E07E621FA4C99600C90FF5 /* ApacheRequest.swift */,
+				E8E07E631FA4C99600C90FF5 /* ApacheResponseWriter.swift */,
+				E8E07E641FA4C99600C90FF5 /* HTTPCommon.swift */,
+				E8E07E651FA4C99600C90FF5 /* HTTPHeaders.swift */,
+				E8E07E661FA4C99600C90FF5 /* HTTPMethod.swift */,
+				E8E07E671FA4C99600C90FF5 /* HTTPRequest.swift */,
+				E8E07E681FA4C99600C90FF5 /* HTTPResponse.swift */,
+				E8E07E691FA4C99600C90FF5 /* HTTPServer.swift */,
+				E8E07E6B1FA4C99600C90FF5 /* HTTPVersion.swift */,
+			);
+			path = HTTP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,9 +163,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		E85125921EE04EAD0024F268 /* SwiftServerHttp */ = {
+		E85125921EE04EAD0024F268 /* HTTP */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E85125971EE04EAD0024F268 /* Build configuration list for PBXNativeTarget "SwiftServerHttp" */;
+			buildConfigurationList = E85125971EE04EAD0024F268 /* Build configuration list for PBXNativeTarget "HTTP" */;
 			buildPhases = (
 				E851258F1EE04EAD0024F268 /* Sources */,
 				E85125901EE04EAD0024F268 /* Frameworks */,
@@ -165,9 +175,9 @@
 			);
 			dependencies = (
 			);
-			name = SwiftServerHttp;
+			name = HTTP;
 			productName = SwiftServerHttp;
-			productReference = E85125931EE04EAD0024F268 /* libSwiftServerHttp.dylib */;
+			productReference = E85125931EE04EAD0024F268 /* libHTTP.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
 		E85125AE1EE0512B0024F268 /* mods_httpapi */ = {
@@ -195,7 +205,7 @@
 		E851258B1EE04EAD0024F268 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "ZeeZide GmbH";
 				TargetAttributes = {
 					E85125921EE04EAD0024F268 = {
@@ -223,7 +233,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E85125921EE04EAD0024F268 /* SwiftServerHttp */,
+				E85125921EE04EAD0024F268 /* HTTP */,
 				E85125AE1EE0512B0024F268 /* mods_httpapi */,
 			);
 		};
@@ -253,12 +263,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E85125A21EE04F2E0024F268 /* HTTPResponse.swift in Sources */,
-				E85125E41EE0577D0024F268 /* ApacheRequest.swift in Sources */,
-				E85125E81EE058A20024F268 /* ApacheResponseWriter.swift in Sources */,
-				E85125A01EE04F2E0024F268 /* HTTPCommon.swift in Sources */,
-				E85125E21EE054D90024F268 /* ApacheHTTP.swift in Sources */,
-				E85125A11EE04F2E0024F268 /* HTTPRequest.swift in Sources */,
+				E80557C61FA4CA0D00796CDA /* HTTPCommon.swift in Sources */,
+				E80557CD1FA4CA0D00796CDA /* HTTPVersion.swift in Sources */,
+				E80557C31FA4CA0D00796CDA /* ApacheHTTP.swift in Sources */,
+				E80557C81FA4CA0D00796CDA /* HTTPMethod.swift in Sources */,
+				E80557C71FA4CA0D00796CDA /* HTTPHeaders.swift in Sources */,
+				E80557CA1FA4CA0D00796CDA /* HTTPResponse.swift in Sources */,
+				E80557C91FA4CA0D00796CDA /* HTTPRequest.swift in Sources */,
+				E80557C51FA4CA0D00796CDA /* ApacheResponseWriter.swift in Sources */,
+				E80557C41FA4CA0D00796CDA /* ApacheRequest.swift in Sources */,
+				E80557CB1FA4CA0D00796CDA /* HTTPServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +292,7 @@
 /* Begin PBXTargetDependency section */
 		E85125B41EE053BC0024F268 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E85125921EE04EAD0024F268 /* SwiftServerHttp */;
+			target = E85125921EE04EAD0024F268 /* HTTP */;
 			targetProxy = E85125B31EE053BC0024F268 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -293,7 +307,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -301,7 +317,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -328,7 +348,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -341,7 +361,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -349,7 +371,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -370,7 +396,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -410,7 +436,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -425,7 +450,6 @@
 				EXECUTABLE_PREFIX = lib;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -441,7 +465,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E85125971EE04EAD0024F268 /* Build configuration list for PBXNativeTarget "SwiftServerHttp" */ = {
+		E85125971EE04EAD0024F268 /* Build configuration list for PBXNativeTarget "HTTP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E85125981EE04EAD0024F268 /* Debug */,

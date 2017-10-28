@@ -108,4 +108,4 @@ public func ApacheMain(cmd: OpaquePointer) {
 - convenience doesn't belong into protocols, but in extensions
   - maybe DispatchData should be the default, and Data just a convenience 
 - the `shouldStop` of HTTPBodyHandler belongs into `HTTPBodyChunk.chunk`
-- no idea what `WebAppContaining` is good for and where weak would be relevant
+- no idea what `HTTPRequestHandling` is good for and where weak would be relevant

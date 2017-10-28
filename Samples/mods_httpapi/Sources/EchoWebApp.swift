@@ -7,28 +7,27 @@
 //
 
 import Foundation
-import SwiftServerHttp
+import HTTP
 
 
 /// Simple `WebApp` that just echoes back whatever input it gets
-class EchoWebApp: WebAppContaining {
-    func serve(req: HTTPRequest, res: HTTPResponseWriter ) -> HTTPBodyProcessing {
+class EchoWebApp: HTTPRequestHandling {
+    func handle(request: HTTPRequest, response: HTTPResponseWriter )
+         -> HTTPBodyProcessing
+    {
         //Assume the router gave us the right request - at least for now
-        res.writeResponse(HTTPResponse(httpVersion: req.httpVersion,
-                                       status: .ok,
-                                       transferEncoding: .chunked,
-                                       headers: HTTPHeaders([("X-foo", "bar")])))
+        response.writeHeader(status: .ok, headers: ["X-foo": "bar"])
         return .processBody { (chunk, stop) in
             switch chunk {
             case .chunk(let data, let finishedProcessing):
-                res.writeBody(data: data) { _ in
+                response.writeBody(data) { _ in
                     finishedProcessing()
                 }
             case .end:
-                res.done()
+                response.done()
             default:
                 stop = true /* don't call us anymore */
-                res.abort()
+                response.abort()
             }
         }
     }

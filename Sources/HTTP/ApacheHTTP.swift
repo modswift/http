@@ -20,18 +20,18 @@ public class ApacheModule {
     case noIdeaWhat
   }
   
-  var handlers = [ ( String, WebApp ) ]()
+  var handlers = [ ( String, HTTPRequestHandler ) ]()
   
   init(loadCommand cmd: UnsafeMutablePointer<cmd_parms>, name: String) {
     module = CApache.module(name: name, register_hooks: register_hooks)
   }
   
-  public func use(_ prefix: String, _ app: @escaping WebApp) {
+  public func use(_ prefix: String, _ app: @escaping HTTPRequestHandler) {
     handlers.append( (prefix, app) )
   }
-  public func use(_ prefix: String, _ app: WebAppContaining) {
+  public func use(_ prefix: String, _ app: HTTPRequestHandling) {
     use(prefix) { req, res in
-      return app.serve(req: req, res: res)
+      return app.handle(request: req, response: res)
     }
   }
     
@@ -40,7 +40,7 @@ public class ApacheModule {
     let raw = UnsafeMutablePointer<request_rec>(rawOpaque)
     let uri = String(cString: raw.pointee.uri)
     
-    let handler : WebApp? = {
+    let handler : HTTPRequestHandler? = {
       for ( prefix, handler ) in handlers {
         guard uri.hasPrefix(prefix) else { continue }
         return handler
@@ -92,7 +92,7 @@ public class ApacheModule {
           
           // hm
           buffer.withMemoryRebound(to: UInt8.self, capacity: rc) { buffer in
-            let bp    = UnsafeBufferPointer(start: buffer, count: rc)
+            let bp    = UnsafeRawBufferPointer(start: buffer, count: rc)
             let ddata = DispatchData(bytesNoCopy: bp,
                                      deallocator: .custom(DispatchQueue.main, {}))
             handler(HTTPBodyChunk.chunk(data: ddata, finishedProcessing: {}),

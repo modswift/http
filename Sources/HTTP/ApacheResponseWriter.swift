@@ -13,6 +13,11 @@ import Foundation
 
 class ApacheResponseWriter : HTTPResponseWriter {
   
+  enum Error : Swift.Error {
+    case writeError
+    case trailerUnsupported
+  }
+  
   var handle : OpaquePointer
   
   init(_ handle: UnsafeMutablePointer<request_rec>) {
@@ -28,17 +33,21 @@ class ApacheResponseWriter : HTTPResponseWriter {
   // MARK: - Proposal Implementation
   
   func abort() {
-    fatalError("doesNotRecognize(#selector(\(#function)))")
-  }
-  func writeTrailer(key: String, value: String) {
-    fatalError("doesNotRecognize(#selector(\(#function)))")
-  }
-  func writeContinue(headers: HTTPHeaders?) {
-    fatalError("doesNotRecognize(#selector(\(#function)))")
+    //fatalError("doesNotRecognize(#selector(\(#function)))")
+    // TBD?
+    print("TODO: called abort")
   }
   
-  func writeResponse(_ response: HTTPResponse) {
-    switch response.status {
+  func writeTrailer(_ trailers: HTTPHeaders,
+                    completion: @escaping (Result) -> Void)
+  {
+    completion(.error(Error.trailerUnsupported))
+  }
+  
+  func writeHeader(status: HTTPResponseStatus, headers: HTTPHeaders,
+                   completion: @escaping (Result) -> Void)
+  {
+    switch status {
       case .ok:       typedHandle.pointee.status = HTTP_OK
       case .created:  typedHandle.pointee.status = HTTP_CREATED
       case .accepted: typedHandle.pointee.status = HTTP_ACCEPTED
@@ -53,8 +62,8 @@ class ApacheResponseWriter : HTTPResponseWriter {
         typedHandle.pointee.status = HTTP_INTERNAL_SERVER_ERROR
     }
 
-    for ( name, value ) in response.headers.makeIterator() {
-      switch name.lowercased() {
+    for ( name, value ) in headers.makeIterator() {
+      switch name.lowercased {
         case "content-type":
           ap_set_content_type(typedHandle, apr_pstrdup(typedHandle.pointee.pool, "\(value)"))
         case "content-encoding":
@@ -63,15 +72,41 @@ class ApacheResponseWriter : HTTPResponseWriter {
         case "content-language":
           fatalError("no support for content-language yet ...")
         default:
-          apr_table_set(typedHandle.pointee.headers_out, name, value)
+          apr_table_set(typedHandle.pointee.headers_out, name.original, value)
       }
     }
   }
-  
-  func writeBody(data: DispatchData,
-                 completion: @escaping (Result<POSIXError, ()>) -> Void)
+
+  func writeBody(_ data: UnsafeHTTPResponseBody,
+                 completion: @escaping (Result) -> Void)
   {
-    guard !data.isEmpty else { completion(Result.success()); return }
+    data.withUnsafeBytes { data in
+      guard !data.isEmpty else { completion(.ok); return }
+      
+      let th      = typedHandle
+      let brigade = apr_brigade_create(th.pointee.pool,
+                                       th.pointee.connection.pointee.bucket_alloc)
+
+      let rc = apz_fwrite(th.pointee.output_filters, brigade,
+                          data.baseAddress, apr_size_t(data.count))
+      guard rc == OK else {
+        return completion(.error(Error.writeError))
+      }
+      
+      let rv = ap_pass_brigade(th.pointee.output_filters, brigade)
+      if rv != APR_SUCCESS {
+        return completion(.error(Error.writeError))
+      }
+      else {
+        completion(.ok)
+      }
+    }
+  }
+
+  func writeBody(data: DispatchData,
+                 completion: @escaping (Result) -> Void)
+  {
+    guard !data.isEmpty else { completion(.ok); return }
     
     let th      = typedHandle
     let brigade = apr_brigade_create(th.pointee.pool,
@@ -91,36 +126,30 @@ class ApacheResponseWriter : HTTPResponseWriter {
     }
     
     guard !didFail else {
-      // We cannot actually create POSIXError objects, right?
-      // return completion(Result.failure(POSIXError.ECANCELED)) // TODO ;->
-      fatalError("could not write to brigade")
+      return completion(.error(Error.writeError))
     }
     
     let rv = ap_pass_brigade(th.pointee.output_filters, brigade)
     if rv != APR_SUCCESS {
-      // We cannot actually create POSIXError objects, right?
-      // completion(Result.failure(POSIXError.ECANCELED)) // TODO ;->
-      fatalError("could not pass over brigade")
+      return completion(.error(Error.writeError))
     }
     else {
-      completion(Result.success())
+      completion(.ok)
     }
   }
   
-  func writeBody(data: Data,
-                 completion: @escaping (Result<POSIXError, ()>) -> Void)
-  {
-    guard !data.isEmpty else { completion(Result.success()); return }
+  func writeBody(data: Data, completion: @escaping (Result) -> Void) {
+    guard !data.isEmpty else { completion(.ok); return }
     
     data.withUnsafeBytes { ( ptr : UnsafePointer<UInt8> ) in
-      let bp    = UnsafeBufferPointer(start: ptr, count: data.count)
+      let bp    = UnsafeRawBufferPointer(start: ptr, count: data.count)
       let ddata = DispatchData(bytesNoCopy: bp,
                                deallocator: .custom(DispatchQueue.main, {}))
       writeBody(data: ddata, completion: completion)
     }
   }
   
-  func done(completion: @escaping (Result<POSIXError, ()>) -> Void) {
+  func done(completion: @escaping (Result) -> Void) {
     let th      = typedHandle
     let brigade = apr_brigade_create(th.pointee.pool,
                                      th.pointee.connection.pointee.bucket_alloc)
@@ -130,12 +159,10 @@ class ApacheResponseWriter : HTTPResponseWriter {
     let rv = ap_pass_brigade(th.pointee.output_filters, brigade)
     
     if rv != APR_SUCCESS {
-      // completion(Result.failure(POSIXError())) // TODO ;->
-      // We cannot actually create POSIXError objects, right?
-      fatalError("could not pass over EOF brigade")
+      return completion(.error(Error.writeError))
     }
     else {
-      completion(Result.success())
+      completion(.ok)
     }
   }
   

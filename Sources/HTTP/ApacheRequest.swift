@@ -15,17 +15,17 @@ func ApacheRequest(_ handle: UnsafeMutablePointer<request_rec>) -> HTTPRequest {
   
   let method : HTTPMethod
   switch handle.pointee.method_number {
-    case M_GET    : method = .GET
-    case M_POST   : method = .POST
-    case M_PUT    : method = .PUT
-    case M_DELETE : method = .DELETE
+    case M_GET    : method = .get
+    case M_POST   : method = .post
+    case M_PUT    : method = .put
+    case M_DELETE : method = .delete
     
     default:
       if strcmp(handle.pointee.method, "HEAD") == 0 {
-        method = .HEAD // Hm?
+        method = .head // Hm?
       }
       else {
-        method = .PURGE // too lazy to do them all
+        method = HTTPMethod(String(cString: handle.pointee.method))
       }
   }
   
@@ -33,28 +33,28 @@ func ApacheRequest(_ handle: UnsafeMutablePointer<request_rec>) -> HTTPRequest {
 
   // Protocol version number of protocol; 1.1 = 1001
   
-  let version : HTTPVersion = ( Int(handle.pointee.proto_num) / 1000,
-                                Int(handle.pointee.proto_num) % 1000 )
+  let version = HTTPVersion(major: Int(handle.pointee.proto_num) / 1000,
+                            minor: Int(handle.pointee.proto_num) % 1000 )
   
   // transfer headers
   
-  var original = [ ( String, String ) ]()
+  var headers = HTTPHeaders()
   
   if let elements = apr_table_elts(handle.pointee.headers_in) {
     let count = Int(elements.pointee.nelts)
 
-    if count > 0 {
-      original.reserveCapacity(count)
-    
+    if count > 0 {    
       let ptr = UnsafeRawPointer(elements.pointee.elts)!
       var tptr = ptr.assumingMemoryBound(to: apr_table_entry_t.self)
       
+      var originals = [ ( HTTPHeaders.Name, String) ]()
       for _ in 0..<count {
         let key   = String(cString: tptr.pointee.key)
         let value = String(cString: tptr.pointee.val)
-        original.append(key, value)
+        originals.append( ( HTTPHeaders.Name(key), value ) )
         tptr = tptr.advanced(by: 1)
       }
+      headers.original = originals
     }
   }
   
@@ -63,5 +63,5 @@ func ApacheRequest(_ handle: UnsafeMutablePointer<request_rec>) -> HTTPRequest {
   
   return HTTPRequest(method: method, target: target,
                      httpVersion: version,
-                     headers: HTTPHeaders(original))
+                     headers: headers)
 }
