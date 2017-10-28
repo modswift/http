@@ -24,8 +24,12 @@ if [[ "$TRAVIS_OS_NAME" == "Linux" ]]; then
     sudo update-alternatives --quiet --install /usr/bin/clang++ clang++ /usr/bin/clang++-3.6 100
 else
     echo "OS: $TRAVIS_OS_NAME"
-    brew update --quiet >/dev/null
+    echo "mod_swift: update brew:"
+    brew update --quiet >/dev/null 2>&1
+    echo "mod_swift: done, tap modswift/mod_swift"
     brew tap modswift/mod_swift
+    echo "done, install httpd ..."
     brew install httpd --with-mpm-event --with-http2
+    echo "done, install mod_swift ..."
     brew install mod_swift
 fi
