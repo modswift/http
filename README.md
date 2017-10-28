@@ -1,6 +1,7 @@
 # SwiftServerHttp
 
-Sample prototype implementation of @weissi's HTTP Sketch v2 from https://lists.swift.org/pipermail/swift-server-dev/Week-of-Mon-20170403/000422.html for discussion.
+Sample prototype implementation of the Swift Server HTTP API Working Group API
+[v0.1.0](https://github.com/swift-server/http/releases/tag/0.1.0).
 
 This is a [mod_swift](http://mod-swift.org/) version of
 the API.
@@ -8,8 +9,8 @@ the API.
 
 ## Description
 
-This is an Apache implementation of the HTTP Sketch v2 using mod_swift. It consists
-of a library package (top-level Package.swift: SwiftServerHttp) implementing the API
+This is an Apache implementation of the HTTP API 0.1.0 using mod_swift. It consists
+of a library package (top-level Package.swift: HTTP) implementing the API
 and of a sample module using the API.
 
 Note: to run anything, you must install mod_swift.
