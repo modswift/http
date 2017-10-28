@@ -76,4 +76,5 @@ fastlane/test_output
 
 # mod_swift
 .httpd.pid
+Package.resolved
 
