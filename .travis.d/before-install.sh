@@ -25,7 +25,7 @@ if [[ "$TRAVIS_OS_NAME" == "Linux" ]]; then
 else
     echo "OS: $TRAVIS_OS_NAME"
     brew tap modswift/mod_swift
-    brew update
+    brew update >/dev/null
     brew install homebrew/apache/httpd24 --with-mpm-event --with-http2
     brew install mod_swift
 fi
