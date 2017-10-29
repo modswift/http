@@ -20,9 +20,8 @@ Note: to run anything, you must install mod_swift.
 ### Installation on macOS
 
 ```shell
-brew tap homebrew/apache
 brew tap modswift/mod_swift
-brew reinstall httpd24 --with-mpm-event --with-http2
+brew reinstall httpd --with-mpm-event --with-http2
 brew install mod_swift
 ```
 
@@ -35,8 +34,8 @@ sudo apt-get install \
    libnghttp2-dev
 
 curl -L -o mod_swift.tgz \
-     https://github.com/modswift/mod_swift/archive/0.8.5.tar.gz
-tar zxf mod_swift.tgz && cd mod_swift-0.8.5
+     https://github.com/modswift/mod_swift/archive/0.8.10.tar.gz
+tar zxf mod_swift.tgz && cd mod_swift-0.8.10
 sudo make install
 ```
 
